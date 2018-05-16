@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      GeoData
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-select name="continentes" class="form-control" [(ngModel)]="continente">
+      <ion-option [value]="Africa" selected>Africa</ion-option>
+      <ion-option [value]="Americas">Americas</ion-option>
+      <ion-option [value]="Europa">Europa</ion-option>
+      <ion-option [value]="Asia">Asia</ion-option>
+      <ion-option [value]="Oceania">Oceania</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-item>
+    <button ion-button (click)="listarPaises()">Buscar</button>
+  </ion-item>
+</ion-content>
