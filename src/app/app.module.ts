@@ -10,6 +10,8 @@ import { PaisesPageModule } from '../pages/paises/paises.module';
 import { PaisesPage } from '../pages/paises/paises';
 import { PaisPage } from '../pages/pais/pais';
 import { PaisPageModule } from '../pages/pais/pais.module';
+import { CountriesProvider } from '../providers/countries/countries';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,8 @@ import { PaisPageModule } from '../pages/pais/pais.module';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     PaisesPageModule,
-    PaisPageModule
+    PaisPageModule,
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -32,7 +35,8 @@ import { PaisPageModule } from '../pages/pais/pais.module';
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler }
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
+    CountriesProvider
   ]
 })
 export class AppModule { }
