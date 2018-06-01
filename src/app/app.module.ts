@@ -3,40 +3,40 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { SQLite } from '@ionic-native/sqlite';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-import { PaisesPageModule } from '../pages/paises/paises.module';
-import { PaisesPage } from '../pages/paises/paises';
-import { PaisPage } from '../pages/pais/pais';
-import { PaisPageModule } from '../pages/pais/pais.module';
-import { CountriesProvider } from '../providers/countries/countries';
-import { HttpModule } from '@angular/http';
+import { DatabaseProvider } from '../providers/database/database';
+import { PaisProvider } from '../providers/pais/pais';
+import { AdicionaPaisPageModule } from '../pages/adiciona-pais/adiciona-pais.module';
+import { ExibePaisesPageModule } from '../pages/exibe-paises/exibe-paises.module';
+import { AtualizaPaisPageModule } from '../pages/atualiza-pais/atualiza-pais.module';
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    PaisesPageModule,
-    PaisPageModule,
-    HttpModule
+    AdicionaPaisPageModule,
+    ExibePaisesPageModule,
+    AtualizaPaisPageModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
     HomePage,
-    PaisesPage,
-    PaisPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: ErrorHandler, useClass: IonicErrorHandler },
-    CountriesProvider
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    SQLite,
+    DatabaseProvider,
+    PaisProvider
   ]
 })
-export class AppModule { }
+export class AppModule {}
