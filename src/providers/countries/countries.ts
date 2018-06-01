@@ -20,8 +20,4 @@ export class CountriesProvider {
     return this.http.get(this.BASE_URL_API + 'region/' + region);
   }
 
-  getPaisByName(country:string){
-    return this.http.get(this.BASE_URL_API + 'name/' + country);
-  }
-
 }
